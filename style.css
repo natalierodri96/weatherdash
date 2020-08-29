@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family:  'calibri';
+    background-color: rgb(70, 167, 252);
+}
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 15px 15px;
+}                  
+header input {
+    width: 100%;
+    max-width: 280px;
+    padding: 10px 15px;
+    border-radius: 16px 0px 16px 0px;
+    border-bottom: 5px solid orange;
+    font-size: 20px;
+    font-weight: 300;
+    transition: 0.2s ease-out;
+ 
+}                    
+main {
+    flex: 1 1 100%;
+    padding: 25px 25px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.location .city {
+    color: papayawhip;
+    font-size: 42px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.location .date {
+    color: papayawhip;
+    font-size: 20px;
+}
+.current .degrees {
+    color: papayawhip;
+    font-size: 90px;
+    font-weight: 900;
+    margin: 30px 0px;
+    text-shadow: 2px 5px black;
+}
+.current .degrees span {
+    font-weight: 500;
+}
+.current .weather {
+    color: papayawhip;
+    font-size: 32px;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px black;
+}
+.current .diff {
+  color: papayawhip;
+  font-size: 24px;
+  font-weight: 500;
+  text-shadow: 2px 2px black;
+}
