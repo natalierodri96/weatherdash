@@ -1,12 +1,7 @@
-
-let responseURL =
-  "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=a5d2ff26f61b3f93f5b7cf43c2c26a1c";
-$.ajax({
-  url: responseURL,
-  method: "GET",
-}).then(function (response) {
-  console.log(response);
-});
+const api = {
+    key:"a5d2ff26f61b3f93f5b7cf43c2c26a1c",
+    base:"http://api.openweathermap.org/data/2.5/"
+}
 
 const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery);
@@ -27,4 +22,22 @@ function displayResults (weather) {
     console.log(weather);
     let city = document.querySelector('.location .city');
     city.innerText ='${weather.name}, ${weather.sys.country}';
+    let now = new Date();
+    let date = document.querySelector('.location .date');
+    date.innerText = dateBuilder(now);
+    let degrees = document.querySelector('.current .degrees');
+    degrees.innerHTML = '${Math.round(weather.main.temp).toFixed(0)}<span>°F</span>';
+    let weather_el = document.querySelector('.current .weather');
+    weather_el.innerText = weather.weather[0].main;
+    let diff = document.querySelector('diff');
+    diff.innerText ='${Math.round(weather.main.degrees_min)}°F / ${Math.round(weather.main.degrees_max)}°F';
+}
+function dateBuilder (d) {
+     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",];
+     let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+     let day = days[d.getDay()];
+     let date = d.getDate();
+     let month = months[d.getMonths()];
+     let year =d.getFullYear();
+     return '${day} ${date} ${month} ${year}';
 }
